@@ -1,0 +1,6 @@
+application/application/__pycache__
+application/task/__pycache__
+application/task/migrations
+.venv
+.env
+db.sqlite3

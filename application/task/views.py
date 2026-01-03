@@ -12,6 +12,7 @@ from .serializers import (
     TaskListSerializer,
     TaskDetailSerializer,
 )
+from .utils import add  # Example utility function
 
 # Create task
 @api_view(["POST"])
@@ -46,6 +47,7 @@ def create_task(request):
 def list_tasks(request):
     qs = Task.objects.all().order_by("-created_at")
     serializer = TaskListSerializer(qs, many=True)
+    add.delay(4, 6)  # Example of calling a Celery task
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
